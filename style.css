@@ -96,4 +96,116 @@
  a{
     text-decoration: none;
     color: inherit;
- }
+ }  
+ @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+ 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    background: #f2f2f2;
+}
+
+/* HEADER */
+.header{
+    height: 200px;
+    background: url(img/logo3.jpg) center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header h1{
+    color: white;
+    font-size: 30px;
+}
+
+/* CONTENEDOR */
+.contenedor{
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px;
+}
+
+/* GRID */
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+body{
+    background: url("img/LOGO2.jpg.JPG") no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+     image-rendering: auto;
+    
+}
+
+
+/* TARJETAS */
+.card{
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+}
+
+/* TITULO */
+.card h3{
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* IMAGEN */
+.card img{
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+/* PRECIO */
+.card p{
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* BOTON */
+.card button{
+    padding: 6px 10px;
+    font-size: 13px;
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card button:hover{
+    background: black;
+    color: white;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px){
+    .grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px){
+    .grid{
+        grid-template-columns: 1fr;
+    }
+}
