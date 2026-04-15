@@ -81,7 +81,7 @@
     left: 0;
     width: 300px;
     height: 100%;
-    background-image: url(/img/logo.jpg);
+    background-image: url(img/logo1.jpg);
     background-size: cover;
     background-position: left;
     z-index: 1;
@@ -113,7 +113,7 @@ body{
 /* HEADER */
 .header{
     height: 200px;
-    background: url(img/logo3.jpg) center/cover no-repeat;
+    background: url(img/logo4.jpg) center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -138,7 +138,7 @@ body{
     gap: 25px;
 }
 body{
-    background: url("img/LOGO2.jpg.JPG") no-repeat center center fixed;
+    background: url("img/LOGO8.jpg") no-repeat  center center fixed;
     background-size: cover;
     background-position: center;
      image-rendering: auto;
@@ -208,4 +208,44 @@ body{
     .grid{
         grid-template-columns: 1fr;
     }
+}
+
+.icono-carrito {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: black;
+  color: white;
+  padding: 10px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+#contador {
+  background: red;
+  padding: 3px 7px;
+  border-radius: 50%;
+}
+
+.carrito {
+  position: fixed;
+  right: 0;
+  top: 60px;
+  width: 300px;
+  background: white;
+  padding: 15px;
+  display: none;
+}
+
+.buscador {
+  text-align: center;
+  margin: 20px;
+}
+
+.buscador input {
+  padding: 10px;
+  width: 250px;
+  border-radius: 20px;
+  border: none;
+
 }

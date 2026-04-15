@@ -13,68 +13,80 @@
 </header>
 
 <div class="contenedor">
+    <div class="icono-carrito" onclick="toggleCarrito()">
+  🛒 <span id="contador">0</span>
+</div>
+
+<div class="carrito" id="carrito">
+  <h2>Carrito</h2>
+  <div id="lista"></div>
+  <p>Total: $<span id="total">0</span></p>
+</div>
 
     <div class="grid">
 
         <div class="card">
             <h3>POLO MANGA LARGA</h3>
-            <img src="img/POLO1.jpg.jpeg">
-            <p>$15.00</p>
+            <img src="img/polo1.jpg">
+            <p>$30.00</p>
             <button>Agregar al carrito</button>
         </div>
 
         <div class="card">
             <h3>LICRA</h3>
-            <img src="img/POLO2.jpg.jpeg">
-            <p>$15.00</p>
+            <img src="img/polo2.jpg">
+            <p>$25.00</p>
             <button>Agregar al carrito</button>
         </div>
 
         <div class="card">
             <h3>CONJUNTO DEPORTIVO NEGRO</h3>
-            <img src="img/POLO3.jpg.jpeg">
-            <p>$15.00</p>
+            <img src="img/polo3.jpg">
+            <p>$50.00</p>
             <button>Agregar al carrito</button>
         </div>
 
         <div class="card">
             <h3>CONJUNT DEPORTIVO BLANCO</h3>
-            <img src="img/POLO4.jpg.jpeg">
+            <img src="img/polo4.jpg">
             <p>$15.00</p>
             <button>Agregar al carrito</button>
         </div>
 
         <div class="card">
             <h3>LONG SLEEVE SPORTS SET</h3>
-            <img src="img/POLO5.jpg.jpeg">
-            <p>$15.00</p>
-            <button>Agregar al carrito</button>
+            <img src="img/polo5.jpg">
+            <p>$40.00</p>
+            <button onclick="agregar('CONJUNTO DE GIMNASIO COLOR BLACK, $25.00')">Agregar al carrito</button>
         </div>
 
         <div class="card">
             <h3>LONG SLEEVE SPORTS SET 2</h3>
-            <img src="img/POLO6.jpg.jpeg">
-            <p>$15.00</p>
-            <button>Agregar al carrito</button>
+            <img src="img/polo6.jpg">
+            <p>$30.00</p>
+            <button onclick="agregar('CONJUNTO DE GIMNASIO COLOR BLACK, $25.00')">Agregar al carrito</button>
         </div>
 
         <div class="card">
             <h3>LONG SLEEVE SPORTS SET 3</h3>
-            <img src="img/POLO7.jpg.jpeg">
-            <p>$15.00</p>
-            <button>Agregar al carrito</button>
+            <img src="img/polo7.jpg">
+            <p>$25.00</p>
+            <button onclick="agregar('CONJUNTO DE GIMNASIO COLOR BLACK, $25.00')">Agregar al carrito</button>
         </div>
 
         <div class="card">
             <h3>LONG SLEEVE SPORTS SET 4</h3>
-            <img src="img/POLO8.jpg.jpeg">
+            <img src="img/polo8.jpg">
             <p>$15.00</p>
-            <button>Agregar al carrito</button>
+            <button onclick="agregar('CONJUNTO DE GIMNASIO COLOR BLACK, $25.00')">Agregar al carrito</button>
         </div>
 
-    </div>
-
+    
+       <div class="buscador">
+  <input type="text" id="buscar" placeholder="Buscar producto...">
+</div>
 </div>
 
+    
 </body>
 </html>
