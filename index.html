@@ -7,23 +7,41 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="header">
-    <h1> 
-     <p align="center">
-        <strong>FRESH FIT</strong>
-     </p>
-    </h1>
-</div>
- <a href="mujer.html">
-<div class="container">
-    <div class="box mujer">
+
+    <div class="header">
+        <h1> 
+            <p align="center">
+            <strong>FRESH FIT</strong>
+            </p>
+        </h1>
+    </div>
+
+    <a href="mujer.html">
+        <div class="container">
+        <div class="box mujer">
         <h1>MUJER</h1>
     </a>
+
     </div>
-    <a href="hombre.html">
-    <div class="box hombre">
-        <h1>HOMBRE</h1>
+        <a href="hombre.html">
+            <div class="box hombre">
+            <h1>HOMBRE</h1>
         </a>
     </div>
+
+
+    <div class="icono-carrito" onclick="toggleCarrito()">
+        🛒 <span id="contador">0</span>
+    </div>
+
+    <div class="carrito" id="carrito" style="display:none;">
+        <h2>Carrito de Compras</h2>
+        <div id="lista"></div>
+        <p>Total: $<span id="total">0.00</span></p>
+        <button onclick="checkout()">Finalizar Compra</button>
+    </div>
+
+
+<script src="script.js"></script>
 </body>
 </html>

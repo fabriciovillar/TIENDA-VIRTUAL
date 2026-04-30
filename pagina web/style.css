@@ -92,3 +92,40 @@
     z-index: 2;
     color: white;
  }
+
+ .carrito {
+  position: fixed;
+  right: 20px;
+  top: 80px;
+  width: 300px;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.carrito h2 {
+  margin-top: 0;
+  font-size: 18px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.carrito div {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.carrito button {
+  margin-left: 5px;
+  background: #f44336;
+  color: #fff;
+  border: none;
+  padding: 3px 6px;
+  cursor: pointer;
+}
+
+.carrito button:hover {
+  background: #d32f2f;
+}
