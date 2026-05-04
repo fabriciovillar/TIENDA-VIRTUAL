@@ -1,0 +1,386 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>LICRA</title>
+  <link rel="stylesheet" href="estilo.css">
+  <style>
+body { 
+    font-family: Arial, sans-serif;
+    margin: 50px; 
+    padding: 0; 
+    background-image: url('img/LOGO8.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.container {
+    display: flex;
+    align-items: flex-start;
+    gap: 100px;
+    padding: 40px; 
+}
+.imagen-producto img {
+    max-width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 8px; 
+    margin-left: 300px;
+}
+.info-producto {
+    max-width: 400px;
+    margin-left: 50px; 
+}
+.precio {
+    font-size: 17px;
+    color: #ffffff !important;
+    font-weight: bold;
+}
+.tallas { 
+    margin: 15px 0; 
+}
+.tallas button { 
+    margin-right: 10px; 
+    padding: 8px 12px; 
+    border: 1px solid #333; 
+    background: #fff; 
+    cursor: pointer; 
+}
+.cantidad {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    gap: 15px; 
+    margin: 20px 0; 
+    background: #f5f5f5; 
+    border: 2px solid #f7f7f7; 
+    border-radius: 8px; 
+    padding: 10px; 
+    width: 150px; 
+}
+.cantidad button {
+    width: 35px; 
+    height: 35px; 
+    font-size: 20px; 
+    cursor: pointer; 
+    border: none; 
+    background: #e9e9e9;
+    color: #0a0a0a;
+    border-radius: 5px; 
+}
+.cantidad span {
+    font-size: 20px;
+    min-width: 30px; 
+    text-align: center; 
+    font-weight: bold; 
+}
+.btn-carrito {
+    border-radius: 50px; 
+    background: rgb(0, 0, 0);
+    color: #fff; 
+    padding: 12px 30px; 
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 10px;
+}
+.btn-carrito:hover {
+    background: rgb(13, 12, 12);
+}
+.descripcion {
+    margin-top: 30px; 
+    line-height: 1.5; 
+}
+a.volver {
+    display: inline-block; 
+    margin-top: 20px; 
+    text-decoration: none; 
+    color: #ffffff !important;
+}
+.precio-final {
+    font-size: 15px;
+    color: rgb(255, 0, 0) !important; 
+}
+.icono-carrito {
+    position: fixed;
+    top: 20px;      
+    right: 20px;   
+    cursor: pointer;
+    font-size: 18px;
+    background: #111;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 50px;
+}
+
+h1, h2, h3, p, strong {
+    color: #ffffff !important;
+}
+
+/* CARRITO POPUP */
+.popup-carrito { 
+    position: fixed;
+    right: 20px; 
+    top: 60px; 
+    width: 340px; 
+    background: #ffffff !important;
+    border-radius: 12px; 
+    padding: 20px; 
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3); 
+    z-index: 1000; 
+    display: none;
+}
+.popup-carrito h2 {
+    margin-top: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #111 !important;
+    border-bottom: 1px solid #9c9898;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+}
+.popup-carrito p {
+    font-size: 14px;
+    color: #000000 !important;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #fffcfc;
+    padding-bottom: 12px;
+}
+.popup-carrito .item-carrito {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+.popup-carrito .item-carrito img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    background: #090909;
+}
+.popup-carrito .item-info {
+    flex: 1;
+    font-size: 13px;
+    color: #000000 !important;
+}
+.popup-carrito .item-info strong {
+    color: #111111 !important;
+}
+.popup-carrito .item-info small {
+    color: #888 !important;
+    display: block;
+    margin-top: 4px;
+}
+.btn-ver-carrito {
+    width: 100%;
+    padding: 12px;
+    background: #ffffff !important;
+    color: rgb(0, 0, 0) !important;
+    border: 2px solid rgb(8, 8, 8) !important;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+.btn-finalizar {
+    width: 100%;
+    padding: 12px;
+    background: rgb(9, 9, 9) !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.btn-ver-carrito:hover { background: #fff0f0 !important; }
+.btn-finalizar:hover { background: rgb(18, 18, 18) !important; }
+.btn-talla {
+    margin-right: 8px;
+    padding: 8px 14px;
+    border: 2px solid #fff;
+    background: transparent;
+    color: #000000;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.btn-talla:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.talla-activa {
+    background: #fffcfc !important;
+    color: #111 !important;
+}
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Detalle del Producto</h1>
+  </header>
+
+  <div class="icono-carrito" onclick="mostrarCarrito()">
+    🛒 <span id="contador">0</span>
+  </div>
+
+  <div id="popupCarrito" class="popup-carrito">
+    <h2>Mi Carrito</h2>
+    <div id="listaCarrito"></div>
+    <p>Total: S/<span id="totalCarrito">0.00</span></p>
+    <button class="btn-ver-carrito" onclick="verCarrito()">Ver el carro</button>
+    <button class="btn-finalizar" onclick="checkout()">Tramitar Pedido</button>
+  </div>
+
+  <div class="container">
+    <div class="imagen-producto">
+      <img src="img/polo2.jpg" alt="CONJUNTO DEPORTIVO NEGRO">
+    </div>
+
+    <div class="info-producto">
+      <h2>LICRA</h2>
+      <p class="precio">S/<span id="precio">25.00</span></p>
+      <p class="precio-final">PRECIO FINAL</p>
+      <hr>
+
+       <div class="tallas">
+        <strong>Tallas disponibles:</strong><br>
+        <button class="btn-talla" onclick="seleccionarTalla(this, 'S')">S</button>
+        <button class="btn-talla" onclick="seleccionarTalla(this, 'M')">M</button>
+        <button class="btn-talla" onclick="seleccionarTalla(this, 'L')">L</button>
+      </div>
+      <p id="talla-seleccionada" style="font-size:13px; margin-top:8px; color:#fff;">Talla: <span id="talla-texto">No seleccionada</span></p>
+
+      <div class="cantidad">
+        <button onclick="cambiarCantidad(-1)">-</button>
+        <span id="cantidad">0</span>
+        <button onclick="cambiarCantidad(1)">+</button>
+      </div>
+
+      <button class="btn-carrito" onclick="agregarProducto()">Añadir al carrito</button>
+
+      <div class="descripcion">
+        <h3>Descripción</h3>
+        <p>Este es un producto deportivo de alta calidad, ideal para tus entrenamientos y estilo casual.</p>
+        <a href="hombre.html" class="volver">⬅ Volver a la tienda</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+let cantidad = 0;
+let tallaSeleccionada = null;
+
+function seleccionarTalla(boton, talla) {
+    document.querySelectorAll('.btn-talla').forEach(b => b.classList.remove('talla-activa'));
+    boton.classList.add('talla-activa');
+    tallaSeleccionada = talla;
+    document.getElementById("talla-texto").textContent = talla;
+}
+
+function cambiarCantidad(valor) {
+    cantidad += valor;
+    if (cantidad < 0) cantidad = 0;
+    document.getElementById("cantidad").textContent = cantidad;
+}
+
+let carrito = [];
+let total = 0;
+
+function agregarProducto() {
+    if (!tallaSeleccionada) {
+        alert("Por favor selecciona una talla");
+        return;
+    }
+    if (cantidad <= 0) {
+        alert("Selecciona al menos 1 unidad");
+        return;
+    }
+    agregar('LICRA', 25, 'img/polo2.jpg', tallaSeleccionada, cantidad);
+    cantidad = 0;
+    document.getElementById("cantidad").textContent = cantidad;
+}
+
+function agregar(nombre, precio, imagen, talla, cant = 1) {
+    let key = nombre + '-' + talla;
+    let producto = carrito.find(p => p.key === key);
+    if (producto) {
+        producto.cantidad += cant;
+    } else {
+        carrito.push({ key, nombre, precio, imagen, talla, cantidad: cant });
+    }
+    actualizarCarrito();
+    document.getElementById("popupCarrito").style.display = "block";
+}
+
+function actualizarCarrito() {
+    let contador = carrito.reduce((acc, p) => acc + p.cantidad, 0);
+    document.getElementById("contador").textContent = contador;
+
+    let lista = document.getElementById("listaCarrito");
+    lista.innerHTML = "";
+    total = 0;
+
+    carrito.forEach(p => {
+        total += p.precio * p.cantidad;
+        lista.innerHTML += `
+            <div class="item-carrito">
+                <img src="${p.imagen}" alt="${p.nombre}">
+                <div class="item-info">
+                    <strong style="color:#111">${p.nombre}</strong>
+                    <small style="color:#555">S/ ${p.precio.toFixed(2)}</small>
+                    <small style="color:#555">Talla: ${p.talla}</small>
+                    <div style="display:flex; align-items:center; gap:6px; margin-top:6px;">
+                        <button onclick="restar('${p.key}')" style="width:28px;height:28px;background:#f0f0f0;color:#111;border:1px solid #ccc;border-radius:4px;cursor:pointer;font-size:16px;">-</button>
+                        <span style="color:#111; font-weight:bold;">${p.cantidad}</span>
+                        <button onclick="sumar('${p.key}')" style="width:28px;height:28px;background:#f0f0f0;color:#111;border:1px solid #ccc;border-radius:4px;cursor:pointer;font-size:16px;">+</button>
+                        <button onclick="eliminar('${p.key}')" style="width:28px;height:28px;background:#fff;color:#999;border:1px solid #ddd;border-radius:4px;cursor:pointer;font-size:14px;">🗑</button>
+                    </div>
+                </div>
+                <strong style="color:#111; font-size:14px;">S/ ${(p.precio * p.cantidad).toFixed(2)}</strong>
+            </div>
+        `;
+    });
+
+    document.getElementById("totalCarrito").textContent = total.toFixed(2);
+}
+
+function mostrarCarrito() {
+    let popup = document.getElementById("popupCarrito");
+    popup.style.display = (popup.style.display === "none" || popup.style.display === "") ? "block" : "none";
+}
+
+function sumar(key) {
+    let producto = carrito.find(p => p.key === key);
+    producto.cantidad++;
+    actualizarCarrito();
+}
+function restar(key) {
+    let producto = carrito.find(p => p.key === key);
+    if (producto.cantidad > 1) {
+        producto.cantidad--;
+    } else {
+        eliminar(key);
+    }
+    actualizarCarrito();
+}
+function eliminar(key) {
+    carrito = carrito.filter(p => p.key !== key);
+    actualizarCarrito();
+}
+function verCarrito() {
+    alert("Aquí iría la página de carrito completo");
+}
+function checkout() {
+    alert("Finalizar compra: Total S/" + total.toFixed(2));
+}
+  </script>
+</body>
+</html>
