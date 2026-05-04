@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda</title>
+    <title>Fresh Fit - Hombre</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,82 +12,93 @@
     <h1>ROPA DEPORTIVA</h1>
 </header>
 
-<div class="contenedor">
-    <div class="icono-carrito" onclick="toggleCarrito()">
-  🛒 <span id="contador">0</span>
+<div class="icono-carrito" onclick="toggleCarrito()">
+    🛒 <span id="contador">0</span>
 </div>
 
-<div class="carrito" id="carrito">
-  <h2>Carrito</h2>
-  <div id="lista"></div>
-  <p>Total: $<span id="total">0</span></p>
+<div class="carrito-overlay" id="carrito-overlay" onclick="cerrarFuera(event)">
+    <div class="carrito">
+        <div class="carrito-header">
+            <h2>Mi Carrito</h2>
+            <button class="cerrar" onclick="cerrarCarrito()">✕</button>
+        </div>
+        <div id="lista-carrito">
+            <p class="carrito-vacio">Tu carrito está vacío</p>
+        </div>
+        <div class="carrito-footer">
+            <p class="subtitulo"><span id="cantidad">0</span> artículo(s)</p>
+            <p class="total-precio">S/ <span id="total">0.00</span></p>
+            <button class="btn-ver" onclick="cerrarCarrito()">Ver el carro</button>
+            <button class="btn-pagar" onclick="checkout()">Tramitar Pedido</button>
+        </div>
+    </div>
 </div>
+
+<div class="contenedor">
     <div class="grid">
 
-    
         <div class="card">
             <h3>CONJUNTO DE GIMNASIO COLOR BLACK</h3>
-            <img src="img/MUJER1.jpg">
-            <p>$15.00</p>
-            <button onclick="agregar('CONJUNTO DE GIMNASIO COLOR BLACK ', 30)">Agregar al carrito</button>
+            <img src="img/MUJER1.jpg" alt="POLO MANGA LARGA">
+            <p>S/ 15.00</p>
+            <button onclick="agregar('CONJUNTO DE GIMNASIO COLOR BLACK', 30, 'img/MUJER1.jpg')">Agregar al carrito</button>
         </div>
 
         <div class="card">
             <h3>VESTIDO DEPORTIVO</h3>
-            <img src="img/MUJER2.jpg">
-            <p>$20.00</p>
-            <button onclick="agregar('CONJUNTO DE GIMNASIO COLOR BLACK ', 30)">Agregar al carrito</button>
+            <img src="img/MUJER2.jpg" alt="LICRA">
+            <p>S/ 25.00</p>
+            <button onclick="agregar('VESTIDO DEPORTIVO', 25, 'img/MUJER2.jpg')">Agregar al carrito</button>
         </div>
 
         <div class="card">
             <h3>CONJUNTO DE GIMNASIO COLOR BLACK </h3>
-            <img src="img/MUJER3.jpg">
-            <p>$15.00</p>
-            <buttonon >Agregar al carrito</button>
+            <img src="img/MUJER3.jpg"CONJUNTO DEPORTIVO NEGRO">
+            <p>S/ 50.00</p>
+            <button onclick="agregar('CONJUNTO DE GIMNASIO COLOR BLACK', 50, 'img/MUJER3.jpg')">Agregar al carrito</button>
         </div>
 
         <div class="card">
             <h3>CONJUNTO DEPORTIVO DE DOS PIEZAS PARA MUJER COLOR BLUE</h3>
-            <img src="img/MUJER4.jpg">
-            <p>$25.00</p>
-            <button onclick="agregar('CONJUNTO DE GIMNASIO COLOR BLACK, $25.00')">Agregar al carrito</button>
+            <img src="img/MUJER4.jpg" alt="CONJUNTO DEPORTIVO BLANCO">
+            <p>S/ 30.00</p>
+            <button onclick="agregar('CONJUNTO DEPORTIVO DE DOS PIEZAS PARA MUJER COLOR BLUE', 15, 'img/MUJER4.jpg')">Agregar al carrito</button>
         </div>
 
         <div class="card">
             <h3>CONJUNTO DEPORTIVO DE DOS PIEZAS PARA MUJER COLOR BROWN</h3>
-            <img src="img/MUJER5.jpg">
-            <p>$35.00</p>
-            <button onclick="agregar('CONJUNTO DE GIMNASIO COLOR BLACK ', 30)">Agregar al carrito</button>
+            <img src="img/MUJER5.jpg" alt="LONG SLEEVE SPORTS SET">
+            <p>S/ 40.00</p>
+            <button onclick="agregar('CONJUNTO DEPORTIVO DE DOS PIEZAS PARA MUJER COLOR BROWN', 40, 'img/MUJER5.jpg')">Agregar al carrito</button>
         </div>
 
         <div class="card">
             <h3>LONG SLEEVE SPORTS SET COLOR PINK</h3>
-            <img src="img/MUJER6.jpg">
-            <p>$45.00</p>
-            <button onclick="agregar('CONJUNTO DE GIMNASIO COLOR BLACK ', 30)">Agregar al carrito</button>
+            <img src="img/MUJER6.jpg" alt="LONG SLEEVE SPORTS SET 2">
+            <p>S/ 45.00</p>
+            <button onclick="agregar('LONG SLEEVE SPORTS SET COLOR PINK', 30, 'img/MUJER6.jpg')">Agregar al carrito</button>
         </div>
 
         <div class="card">
             <h3>MINI FALDA DEPORTIVA</h3>
-            <img src="img/MUJER7.jpg">
-            <p>$30.00</p>
-            <button onclick="agregar('CONJUNTO DE GIMNASIO COLOR BLACK ', 30)">Agregar al carrito</button>
+            <img src="img/MUJER7.jpg" alt="LONG SLEEVE SPORTS SET 3">
+            <p>S/ 30.00</p>
+            <button onclick="agregar('MINI FALDA DEPORTIVA', 25, 'img/MUJER7.jpg')">Agregar al carrito</button>
         </div>
 
         <div class="card">
             <h3>LONG SLEEVE SPORTS SET COLOR PURPLE</h3>
-            <img src="img/MUJER8.jpg">
-            <p>$20.00</p>
-            <button onclick="agregar('CONJUNTO DE GIMNASIO COLOR BLACK ', 30)">Agregar al carrito</button>
+            <img src="img/MUJER8.jpg" alt="LONG SLEEVE SPORTS SET 4">
+            <p>S/ 20.00</p>
+            <button onclick="agregar('LONG SLEEVE SPORTS SET COLOR PURPLE, 15', 'img/MUJER8.jpg')">Agregar al carrito</button>
         </div>
-        
-        <div class="buscador">
-  <input type="text" id="buscar" placeholder="Buscar producto...">
-</div>
-
 
     </div>
-
+    <div class="buscador">
+        <input type="text" id="buscar" placeholder="Buscar producto...">
+    </div>
 </div>
+
+<script src="script.js"></script>
 </body>
 </html>
