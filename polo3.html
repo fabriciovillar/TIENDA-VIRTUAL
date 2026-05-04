@@ -1,0 +1,62 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CONJUNTO DEPORTIVO NEGRO</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+  <header>
+    <h1>Detalle del Producto</h1>
+  </header>
+
+  <div class="icono-carrito" onclick="mostrarCarrito()">
+    🛒 <span id="contador">0</span>
+  </div>
+
+  <div id="popupCarrito" class="popup-carrito">
+    <h2>Mi Carrito</h2>
+    <div id="listaCarrito"></div>
+    <p>Total: S/<span id="totalCarrito">0.00</span></p>
+    <button class="btn-ver-carrito" onclick="verCarrito()">Ver el carro</button>
+    <button class="btn-finalizar" onclick="checkout()">Tramitar Pedido</button>
+  </div>
+
+  <div class="container">
+    <div class="imagen-producto">
+      <img src="img/polo3.jpg" alt="CONJUNTO DEPORTIVO NEGRO">
+    </div>
+
+    <div class="info-producto">
+      <h2>CONJUNTO DEPORTIVO NEGRO</h2>
+      <p class="precio">S/<span id="precio">50.00</span></p>
+      <p class="precio-final">PRECIO FINAL</p>
+      <hr>
+
+       <div class="tallas">
+        <strong>Tallas disponibles:</strong><br>
+        <button class="btn-talla" onclick="seleccionarTalla(this, 'S')">S</button>
+        <button class="btn-talla" onclick="seleccionarTalla(this, 'M')">M</button>
+        <button class="btn-talla" onclick="seleccionarTalla(this, 'L')">L</button>
+      </div>
+      <p id="talla-seleccionada" style="font-size:13px; margin-top:8px; color:#fff;">Talla: <span id="talla-texto">No seleccionada</span></p>
+
+      <div class="cantidad">
+        <button onclick="cambiarCantidad(-1)">-</button>
+        <span id="cantidad">0</span>
+        <button onclick="cambiarCantidad(1)">+</button>
+      </div>
+
+      <button class="btn-carrito" onclick="agregarProducto()">Añadir al carrito</button>
+
+      <div class="descripcion">
+        <h3>Descripción</h3>
+        <p>Este es un producto deportivo de alta calidad, ideal para tus entrenamientos y estilo casual.</p>
+        <a href="hombre.html" class="volver">⬅ Volver a la tienda</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="estrip.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+body { 
+    font-family: Arial, sans-serif;
+    margin: 50px; 
+    padding: 0; 
+    background-image: url('img/LOGO8.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.container {
+    display: flex;
+    align-items: flex-start;
+    gap: 100px;
+    padding: 40px; 
+}
+.imagen-producto img {
+    max-width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 8px; 
+    margin-left: 300px;
+}
+.info-producto {
+    max-width: 400px;
+    margin-left: 50px; 
+}
+.precio {
+    font-size: 17px;
+    color: #ffffff !important;
+    font-weight: bold;
+}
+.tallas { 
+    margin: 15px 0; 
+}
+.tallas button { 
+    margin-right: 10px; 
+    padding: 8px 12px; 
+    border: 1px solid #333; 
+    background: #fff; 
+    cursor: pointer; 
+}
+.cantidad {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    gap: 15px; 
+    margin: 20px 0; 
+    background: #f5f5f5; 
+    border: 2px solid #f7f7f7; 
+    border-radius: 8px; 
+    padding: 10px; 
+    width: 150px; 
+}
+.cantidad button {
+    width: 35px; 
+    height: 35px; 
+    font-size: 20px; 
+    cursor: pointer; 
+    border: none; 
+    background: #e9e9e9;
+    color: #0a0a0a;
+    border-radius: 5px; 
+}
+.cantidad span {
+    font-size: 20px;
+    min-width: 30px; 
+    text-align: center; 
+    font-weight: bold; 
+}
+.btn-carrito {
+    border-radius: 50px; 
+    background: rgb(0, 0, 0);
+    color: #fff; 
+    padding: 12px 30px; 
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 10px;
+}
+.btn-carrito:hover {
+    background: rgb(13, 12, 12);
+}
+.descripcion {
+    margin-top: 30px; 
+    line-height: 1.5; 
+}
+a.volver {
+    display: inline-block; 
+    margin-top: 20px; 
+    text-decoration: none; 
+    color: #ffffff !important;
+}
+.precio-final {
+    font-size: 15px;
+    color: rgb(255, 0, 0) !important; 
+}
+.icono-carrito {
+    position: fixed;
+    top: 20px;      
+    right: 20px;   
+    cursor: pointer;
+    font-size: 18px;
+    background: #111;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 50px;
+}
+
+h1, h2, h3, p, strong {
+    color: #ffffff !important;
+}
+
+/* CARRITO POPUP */
+.popup-carrito { 
+    position: fixed;
+    right: 20px; 
+    top: 60px; 
+    width: 340px; 
+    background: #ffffff !important;
+    border-radius: 12px; 
+    padding: 20px; 
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3); 
+    z-index: 1000; 
+    display: none;
+}
+.popup-carrito h2 {
+    margin-top: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #111 !important;
+    border-bottom: 1px solid #9c9898;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+}
+.popup-carrito p {
+    font-size: 14px;
+    color: #000000 !important;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #fffcfc;
+    padding-bottom: 12px;
+}
+.popup-carrito .item-carrito {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+.popup-carrito .item-carrito img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    background: #090909;
+}
+.popup-carrito .item-info {
+    flex: 1;
+    font-size: 13px;
+    color: #000000 !important;
+}
+.popup-carrito .item-info strong {
+    color: #111111 !important;
+}
+.popup-carrito .item-info small {
+    color: #888 !important;
+    display: block;
+    margin-top: 4px;
+}
+.btn-ver-carrito {
+    width: 100%;
+    padding: 12px;
+    background: #ffffff !important;
+    color: rgb(0, 0, 0) !important;
+    border: 2px solid rgb(8, 8, 8) !important;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+.btn-finalizar {
+    width: 100%;
+    padding: 12px;
+    background: rgb(9, 9, 9) !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.btn-ver-carrito:hover { background: #fff0f0 !important; }
+.btn-finalizar:hover { background: rgb(18, 18, 18) !important; }
+.btn-talla {
+    margin-right: 8px;
+    padding: 8px 14px;
+    border: 2px solid #fff;
+    background: transparent;
+    color: #000000;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.btn-talla:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.talla-activa {
+    background: #fffcfc !important;
+    color: #111 !important;
+}
