@@ -250,7 +250,7 @@ body {
 }
 
 .btn-ver:hover { background: #fff0f0; }
-.btn-pagar:hover { background: #a93226; }
+.btn-pagar:hover { background: #0a0a0a; }
 
 .carrito-vacio {
     text-align: center;
