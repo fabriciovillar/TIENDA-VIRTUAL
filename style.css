@@ -28,11 +28,11 @@
 }
 
 .mujer {
-    background-image: url("img/mujer.jpg");
+    background-image: url(/img/mujer.jpg);
 }
 
 .hombre {
-    background-image: url("img/hombre.jpg");
+    background-image: url(/img/hombre.jpg);
  }
 
 
@@ -62,7 +62,7 @@
     z-index: 1;
 }
 .header{
-    background-image: url("img/logo0.jpg");
+    background-image: url(/img/57ab6ddb43331c11f3b4b201fae5edc9.jpg);
     background-size: cover;
     background-position: center;
     padding: 40px;
