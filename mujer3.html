@@ -473,6 +473,10 @@ h1, h2, h3, p, strong {
         <button onclick="generarBoleta()">
             Generar Boleta
         </button>
+        <button onclick="cerrarCheckout()">
+    Cerrar
+</button>
+
 
     </div>
 
@@ -594,7 +598,11 @@ function cambiarCantidad(valor){
 
     document.getElementById("cantidad").textContent = cantidad;
 }
+function cerrarCheckout(){
 
+    document.getElementById("checkoutModal")
+    .style.display = "none";
+}
 function agregarProducto(){
 
     if(!tallaSeleccionada){

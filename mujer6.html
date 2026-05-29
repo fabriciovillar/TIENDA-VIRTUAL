@@ -510,6 +510,10 @@ h1,h2,h3,p,strong,a{
         <button onclick="generarBoleta()">
             Generar Boleta
         </button>
+        <button onclick="cerrarCheckout()">
+    Cerrar
+</button>
+
 
     </div>
 
@@ -669,7 +673,11 @@ function agregarProducto(){
 
     document.getElementById("cantidad").textContent = cantidad;
 }
+function cerrarCheckout(){
 
+    document.getElementById("checkoutModal")
+    .style.display = "none";
+}
 function agregar(nombre, precio, imagen, talla, cant=1){
 
     let key = nombre + talla;
