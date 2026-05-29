@@ -510,6 +510,10 @@ h1,h2,h3,p,strong,a{
         <button onclick="generarBoleta()">
             Generar Boleta
         </button>
+        <button onclick="cerrarCheckout()">
+    Cerrar
+</button>
+
 
     </div>
 
@@ -700,6 +704,11 @@ function agregar(nombre, precio, imagen, talla, cant=1){
     document.getElementById("popupCarrito").style.display = "block";
 }
 
+function cerrarCheckout(){
+
+    document.getElementById("checkoutModal")
+    .style.display = "none";
+}
 function actualizarCarrito(){
 
     let contador = carrito.reduce(

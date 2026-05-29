@@ -510,6 +510,10 @@ h1,h2,h3,p,strong,a{
         <button onclick="generarBoleta()">
             Generar Boleta
         </button>
+        <button onclick="cerrarCheckout()">
+    Cerrar
+</button>
+
 
     </div>
 
@@ -619,7 +623,11 @@ function guardarCarrito(){
         JSON.stringify(carrito)
     );
 }
+function cerrarCheckout(){
 
+    document.getElementById("checkoutModal")
+    .style.display = "none";
+}
 function seleccionarTalla(boton, talla){
 
     document.querySelectorAll('.btn-talla')
