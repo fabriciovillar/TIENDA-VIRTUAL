@@ -402,18 +402,18 @@ function generarBoleta(){
         "boletaModal"
     ).style.display = "flex";
 
-    carrito = [];
 
-    guardarCarrito();
-
-    actualizarCarrito();
 }
 
 function imprimirBoleta(){
 
     window.print();
 }
+function cerrarBoleta(){
 
+    document.getElementById("boletaModal")
+    .style.display = "none";
+}
 function cambiarMetodoPago(){
 
     let metodo =
