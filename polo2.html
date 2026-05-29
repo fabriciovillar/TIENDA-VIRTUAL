@@ -591,6 +591,9 @@ h1,h2,h3,p,strong,a{
         <button onclick="imprimirBoleta()" class="btn-imprimir">
             🖨️ Imprimir
         </button>
+        <button onclick="cerrarBoleta()" class="btn-imprimir">
+    ❌ Cerrar
+</button>
 
     </div>
 
@@ -922,20 +925,18 @@ function generarBoleta(){
     document.getElementById("boletaModal")
     .style.display = "flex";
 
-    /* VACIAR CARRITO DESPUÉS DE PAGAR */
-
-    carrito = [];
-
-    guardarCarrito();
-
-    actualizarCarrito();
+   
 }
 
 function imprimirBoleta(){
 
     window.print();
 }
+function cerrarBoleta(){
 
+    document.getElementById("boletaModal")
+    .style.display = "none";
+}
 function cambiarMetodoPago(){
 
     let metodo =
