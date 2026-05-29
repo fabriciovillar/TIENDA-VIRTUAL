@@ -22,6 +22,219 @@
             <h2>Mi Carrito</h2>
             <button class="cerrar" onclick="cerrarCarrito()">✕</button>
         </div>
+         <!-- CHECKOUT -->
+
+<div id="checkoutModal" class="checkout-modal">
+
+    <div class="checkout-box">
+
+        <h1>🧾 Finalizar Compra</h1>
+
+        <input
+            type="text"
+            id="nombreCliente"
+            placeholder="Nombre completo"
+        >
+
+        <input
+            type="text"
+            id="dniCliente"
+            placeholder="DNI (8 dígitos)"
+            maxlength="8"
+            oninput="this.value=this.value.replace(/[^0-9]/g,'')"
+        >
+
+        <input
+            type="text"
+            id="direccionCliente"
+            placeholder="Dirección"
+        >
+
+        <input
+            type="text"
+            id="celularCliente"
+            placeholder="Celular (9 dígitos)"
+            maxlength="9"
+            oninput="this.value=this.value.replace(/[^0-9]/g,'')"
+        >
+
+        <select id="metodoPago" onchange="cambiarMetodoPago()">
+
+            <option value="tarjeta">
+                Tarjeta
+            </option>
+
+            <option value="yape">
+                Yape
+            </option>
+
+            <option value="plin">
+                Plin
+            </option>
+
+        </select>
+
+        <!-- TARJETA -->
+
+        <div id="datosTarjeta">
+
+            <input
+                type="text"
+                id="numeroTarjeta"
+                placeholder="Número de tarjeta"
+            >
+
+            <input
+                type="text"
+                id="nombreTarjeta"
+                placeholder="Nombre en la tarjeta"
+            >
+
+            <input
+                type="text"
+                id="fechaTarjeta"
+                placeholder="MM / AA"
+            >
+
+            <input
+                type="text"
+                id="cvvTarjeta"
+                placeholder="CVV"
+            >
+
+        </div>
+
+        <!-- QR -->
+
+        <div
+            id="qrPago"
+            style="
+                display:none;
+                text-align:center;
+            "
+        >
+
+            <img
+                id="imagenQR"
+                src=""
+                style="
+                    width:220px;
+                    margin-top:20px;
+                    border-radius:10px;
+                "
+            >
+
+            <p style="color:black;">
+
+                Escanea el QR para pagar
+
+            </p>
+
+        </div>
+
+        <button onclick="generarBoleta()">
+
+            Generar Boleta
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- BOLETA -->
+
+<div id="boletaModal">
+
+    <div class="boleta-box">
+
+        <h1>🧾 Boleta de Compra</h1>
+
+        <div style="text-align:center;">
+
+            <h1 style="color:black;">
+                FRESH FIT
+            </h1>
+
+            <p style="color:black;">
+                Empresa: LOS BROS
+            </p>
+
+            <p style="color:black;">
+
+                Fecha:
+                <span id="fechaActual"></span>
+
+                |
+
+                Hora:
+                <span id="horaActual"></span>
+
+            </p>
+
+            <hr>
+
+        </div>
+
+        <p>
+
+            <strong>Cliente:</strong>
+
+            <span id="bNombre"></span>
+
+        </p>
+
+        <p>
+
+            <strong>DNI:</strong>
+
+            <span id="bDni"></span>
+
+        </p>
+
+        <p>
+
+            <strong>Dirección:</strong>
+
+            <span id="bDireccion"></span>
+
+        </p>
+
+        <p>
+
+            <strong>Celular:</strong>
+
+            <span id="bCelular"></span>
+
+        </p>
+
+        <hr>
+
+        <h2>Productos:</h2>
+
+        <div id="productosBoleta"></div>
+
+        <hr>
+
+        <h2>
+
+            Total:
+            S/<span id="totalBoleta"></span>
+
+        </h2>
+
+        <button
+            onclick="imprimirBoleta()"
+            class="btn-imprimir"
+        >
+
+            🖨️ Imprimir
+
+        </button>
+
+    </div>
+
+</div>
         <div id="lista-carrito">
             <p class="carrito-vacio">Tu carrito está vacío</p>
         </div>

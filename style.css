@@ -317,3 +317,120 @@ body {
     height: 60px;
   }
 }
+
+/* =========================
+   CHECKOUT Y BOLETA
+========================= */
+
+#checkoutModal,
+#boletaModal{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,0.8);
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+}
+
+.checkout-box,
+.boleta-box{
+
+    width:420px;
+
+    max-width:90%;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    box-sizing:border-box;
+}
+
+.checkout-box h1,
+.boleta-box h1,
+.boleta-box h2,
+.boleta-box p,
+.boleta-box strong{
+
+    color:black;
+}
+
+.checkout-box input,
+.checkout-box select{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-top:15px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    box-sizing:border-box;
+}
+
+.checkout-box button,
+.btn-imprimir{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-top:20px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    background:black;
+
+    color:white;
+
+    font-size:16px;
+}
+
+@media print{
+
+    body *{
+
+        visibility:hidden;
+    }
+
+    .boleta-box,
+    .boleta-box *{
+
+        visibility:visible;
+    }
+
+    .boleta-box{
+
+        position:absolute;
+
+        left:0;
+        top:0;
+
+        width:100%;
+    }
+
+    .btn-imprimir{
+
+        display:none;
+    }
+}
