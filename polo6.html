@@ -311,9 +311,9 @@ h1,h2,h3,p,strong,a{
 
     <p>Total: S/<span id="totalCarrito">0.00</span></p>
 
-    <button class="btn-ver-carrito">
-        Ver el carro
-    </button>
+    <button class="btn-ver-carrito" onclick="vaciarCarrito()">
+    Vaciar carrito
+</button>
 
     <button class="btn-finalizar" onclick="checkout()">
         Tramitar Pedido
@@ -773,6 +773,14 @@ function eliminarProducto(index){
     actualizarCarrito();
 }
 
+function vaciarCarrito(){
+
+    carrito = [];
+
+    guardarCarrito();
+
+    actualizarCarrito();
+}
 function mostrarCarrito(){
 
     let popup =

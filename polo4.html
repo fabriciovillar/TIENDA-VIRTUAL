@@ -311,8 +311,8 @@ h1,h2,h3,p,strong,a{
 
     <p>Total: S/<span id="totalCarrito">0.00</span></p>
 
-    <button class="btn-ver-carrito">
-        Ver el carro
+    <button class="btn-ver-carrito" onclick="vaciarCarrito()">
+    Vaciar carrito
     </button>
 
     <button class="btn-finalizar" onclick="checkout()">
@@ -767,6 +767,14 @@ function actualizarCarrito(){
 function eliminarProducto(index){
 
     carrito.splice(index,1);
+
+    guardarCarrito();
+
+    actualizarCarrito();
+}
+function vaciarCarrito(){
+
+    carrito = [];
 
     guardarCarrito();
 
