@@ -1,346 +1,346 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fresh Fit - Hombre</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fresh Fit - Hombre</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
 
-<header class="header">
-    <h1>ROPA DEPORTIVA</h1>
-</header>
+    <header class="header">
+        <h1>ROPA DEPORTIVA</h1>
+    </header>
 
-<div class="icono-carrito" onclick="toggleCarrito()">
-    🛒 <span id="contador">0</span>
-</div>
+    <div class="icono-carrito" onclick="toggleCarrito()">
+        🛒 <span id="contador">0</span>
+    </div>
 
-<div class="carrito-overlay" id="carrito-overlay" onclick="cerrarFuera(event)">
-    <div class="carrito">
-        <div class="carrito-header">
-            <h2>Mi Carrito</h2>
-            <button class="cerrar" onclick="cerrarCarrito()">✕</button>
-        </div>
-         <!-- CHECKOUT -->
+    <div class="carrito-overlay" id="carrito-overlay" onclick="cerrarFuera(event)">
+        <div class="carrito">
+            <div class="carrito-header">
+                <h2>Mi Carrito</h2>
+                <button class="cerrar" onclick="cerrarCarrito()">✕</button>
+            </div>
+            <!-- CHECKOUT -->
 
-<div id="checkoutModal" class="checkout-modal">
+    <div id="checkoutModal" class="checkout-modal">
 
-    <div class="checkout-box">
+        <div class="checkout-box">
 
-        <h1>🧾 Finalizar Compra</h1>
-
-        <input
-            type="text"
-            id="nombreCliente"
-            placeholder="Nombre completo"
-        >
-
-        <input
-            type="text"
-            id="dniCliente"
-            placeholder="DNI (8 dígitos)"
-            maxlength="8"
-            oninput="this.value=this.value.replace(/[^0-9]/g,'')"
-        >
-
-        <input
-            type="text"
-            id="direccionCliente"
-            placeholder="Dirección"
-        >
-
-        <input
-            type="text"
-            id="celularCliente"
-            placeholder="Celular (9 dígitos)"
-            maxlength="9"
-            oninput="this.value=this.value.replace(/[^0-9]/g,'')"
-        >
-
-        <select id="metodoPago" onchange="cambiarMetodoPago()">
-
-            <option value="tarjeta">
-                Tarjeta
-            </option>
-
-            <option value="yape">
-                Yape
-            </option>
-
-            <option value="plin">
-                Plin
-            </option>
-
-        </select>
-
-        <!-- TARJETA -->
-
-        <div id="datosTarjeta">
+            <h1>🧾 Finalizar Compra</h1>
 
             <input
                 type="text"
-                id="numeroTarjeta"
-                placeholder="Número de tarjeta"
+                id="nombreCliente"
+                placeholder="Nombre completo"
             >
 
             <input
                 type="text"
-                id="nombreTarjeta"
-                placeholder="Nombre en la tarjeta"
+                id="dniCliente"
+                placeholder="DNI (8 dígitos)"
+                maxlength="8"
+                oninput="this.value=this.value.replace(/[^0-9]/g,'')"
             >
 
             <input
                 type="text"
-                id="fechaTarjeta"
-                placeholder="MM / AA"
+                id="direccionCliente"
+                placeholder="Dirección"
             >
 
             <input
                 type="text"
-                id="cvvTarjeta"
-                placeholder="CVV"
+                id="celularCliente"
+                placeholder="Celular (9 dígitos)"
+                maxlength="9"
+                oninput="this.value=this.value.replace(/[^0-9]/g,'')"
             >
 
-        </div>
+            <select id="metodoPago" onchange="cambiarMetodoPago()">
 
-        <!-- QR -->
+                <option value="tarjeta">
+                    Tarjeta
+                </option>
 
-        <div
-            id="qrPago"
-            style="
-                display:none;
-                text-align:center;
-            "
-        >
+                <option value="yape">
+                    Yape
+                </option>
 
-            <img
-                id="imagenQR"
-                src=""
+                <option value="plin">
+                    Plin
+                </option>
+
+            </select>
+
+            <!-- TARJETA -->
+
+            <div id="datosTarjeta">
+
+                <input
+                    type="text"
+                    id="numeroTarjeta"
+                    placeholder="Número de tarjeta"
+                >
+
+                <input
+                    type="text"
+                    id="nombreTarjeta"
+                    placeholder="Nombre en la tarjeta"
+                >
+
+                <input
+                    type="text"
+                    id="fechaTarjeta"
+                    placeholder="MM / AA"
+                >
+
+                <input
+                    type="text"
+                    id="cvvTarjeta"
+                    placeholder="CVV"
+                >
+
+            </div>
+
+            <!-- QR -->
+
+            <div
+                id="qrPago"
                 style="
-                    width:220px;
-                    margin-top:20px;
-                    border-radius:10px;
+                    display:none;
+                    text-align:center;
                 "
             >
 
-            <p style="color:black;">
+                <img
+                    id="imagenQR"
+                    src=""
+                    style="
+                        width:220px;
+                        margin-top:20px;
+                        border-radius:10px;
+                    "
+                >
 
-                Escanea el QR para pagar
+                <p style="color:black;">
 
-            </p>
+                    Escanea el QR para pagar
 
+                </p>
+
+            </div>
+
+            <button onclick="generarBoleta()">
+
+                Generar Boleta
+
+            </button>
+
+            <button onclick="cerrarCheckout()">
+            Cerrar
+            </button>
         </div>
 
-        <button onclick="generarBoleta()">
-
-            Generar Boleta
-
-        </button>
-
-         <button onclick="cerrarCheckout()">
-           Cerrar
-         </button>
     </div>
 
-</div>
+    <!-- BOLETA -->
 
-<!-- BOLETA -->
+    <div id="boletaModal" class="boleta-modal">
 
-<div id="boletaModal" class="boleta-modal">
+        <div class="boleta-box">
 
-    <div class="boleta-box">
+            <h1>🧾 Boleta de Compra</h1>
 
-        <h1>🧾 Boleta de Compra</h1>
+            <div style="text-align:center;">
 
-        <div style="text-align:center;">
+                <h1 style="color:black;">
+                    FRESH FIT
+                </h1>
 
-            <h1 style="color:black;">
-                FRESH FIT
-            </h1>
+                <p style="color:black;">
+                    Empresa: LOS BROS
+                </p>
 
-            <p style="color:black;">
-                Empresa: LOS BROS
+                <p style="color:black;">
+
+                    Fecha:
+                    <span id="fechaActual"></span>
+
+                    |
+
+                    Hora:
+                    <span id="horaActual"></span>
+
+                </p>
+
+                <hr>
+
+            </div>
+
+            <p>
+
+                <strong>Cliente:</strong>
+
+                <span id="bNombre"></span>
+
             </p>
 
-            <p style="color:black;">
+            <p>
 
-                Fecha:
-                <span id="fechaActual"></span>
+                <strong>DNI:</strong>
 
-                |
+                <span id="bDni"></span>
 
-                Hora:
-                <span id="horaActual"></span>
+            </p>
+
+            <p>
+
+                <strong>Dirección:</strong>
+
+                <span id="bDireccion"></span>
+
+            </p>
+
+            <p>
+
+                <strong>Celular:</strong>
+
+                <span id="bCelular"></span>
 
             </p>
 
             <hr>
 
-        </div>
+            <h2>Productos:</h2>
 
-        <p>
+            <div id="productosBoleta"></div>
 
-            <strong>Cliente:</strong>
+            <hr>
 
-            <span id="bNombre"></span>
+            <h2>
 
-        </p>
+                Total:
+                S/<span id="totalBoleta"></span>
 
-        <p>
+            </h2>
 
-            <strong>DNI:</strong>
+            <button
+                onclick="imprimirBoleta()"
+                class="btn-imprimir"
+            >
 
-            <span id="bDni"></span>
+                🖨️ Imprimir
 
-        </p>
+            </button>
+            <button
+        type="button"
+        onclick="cerrarBoleta()"
+        class="btn-imprimir">
 
-        <p>
+        ❌ Cerrar
 
-            <strong>Dirección:</strong>
+    </button>
 
-            <span id="bDireccion"></span>
-
-        </p>
-
-        <p>
-
-            <strong>Celular:</strong>
-
-            <span id="bCelular"></span>
-
-        </p>
-
-        <hr>
-
-        <h2>Productos:</h2>
-
-        <div id="productosBoleta"></div>
-
-        <hr>
-
-        <h2>
-
-            Total:
-            S/<span id="totalBoleta"></span>
-
-        </h2>
-
-        <button
-            onclick="imprimirBoleta()"
-            class="btn-imprimir"
-        >
-
-            🖨️ Imprimir
-
-        </button>
-        <button
-    type="button"
-    onclick="cerrarBoleta()"
-    class="btn-imprimir">
-
-    ❌ Cerrar
-
-</button>
-
-    </div>
-
-</div>
-        <div id="lista-carrito">
-            <p class="carrito-vacio">Tu carrito está vacío</p>
-        </div>
-        <div class="carrito-footer">
-            <p class="subtitulo"><span id="cantidad">0</span> artículo(s)</p>
-            <p class="total-precio">S/ <span id="total">0.00</span></p>
-            <button class="btn-ver" onclick="vaciarCarrito()">
-    Vaciar carrito
-</button>
-            <button class="btn-pagar" onclick="checkout()">Tramitar Pedido</button>
-        </div>
-    </div>
-</div>
-
-<div class="contenedor">
-    <div class="grid">
-
-        <div class="card">
-            <a href="polo1.html" style="image-rendering: auto; color:inherit; cursor:pointer;">
-            <h3>POLO MANGA LARGA</h3>
-            <img src="img/polo1.jpg" alt="POLO MANGA LARGA">
-            <p>S/ 30.00</p>
-            </a>
-            <button onclick="agregar('POLO MANGA LARGA', 30, 'img/polo1.jpg')">Agregar al carrito</button>
-        </div>
-
-        <div class="card">
-            <a href="polo2.html" style="image-rendering: auto; color:inherit; cursor:pointer;">
-            <h3>LICRA</h3>
-            <img src="img/polo2.jpg" alt="LICRA">
-            <p>S/ 25.00</p>
-            </a>
-            <button onclick="agregar('LICRA', 25, 'img/polo2.jpg')">Agregar al carrito</button>
-        </div>
-    <div class="card">
-           <a href="polo3.html" style="image-rendering: auto; color:inherit; cursor:pointer;">
-            <h3>CONJUNTO DEPORTIVO NEGRO</h3>
-            <img src="img/polo3.jpg" alt="LICRA">
-            <p>S/ 50.00</p>
-            </a>
-            <button onclick="agregar('CONJUNTO DEPORTIVO NEGRO', 50, 'img/polo3.jpg')">Agregar al carrito</button>
-        </div>
-    
-
-        <div class="card">
-            <a href="polo4.html" style="image-rendering: auto; color:inherit; cursor:pointer;">
-            <h3>CONJUNTO DEPORTIVO BLANCO</h3>
-            <img src="img/polo4.jpg" alt="CONJUNTO DEPORTIVO BLANCO">
-            <p>S/ 15.00</p>
-            </a>
-            <button onclick="agregar('CONJUNTO DEPORTIVO BLANCO', 15, 'img/polo4.jpg')">Agregar al carrito</button>
-        </div>
-
-        <div class="card">
-            <a href="polo5.html" style="image-rendering: auto; color:inherit; cursor:pointer;">
-            <h3>LONG SLEEVE SPORTS SET</h3>
-            <img src="img/polo5.jpg" alt="LONG SLEEVE SPORTS SET">
-            <p>S/ 40.00</p>
-            </a>
-            <button onclick="agregar('LONG SLEEVE SPORTS SET', 40, 'img/polo5.jpg')">Agregar al carrito</button>
-        </div>
-
-        <div class="card">
-            <a href="polo6.html" style="image-rendering: auto; color:inherit; cursor:pointer;">
-            <h3>LONG SLEEVE SPORTS SET 2</h3>
-            <img src="img/polo6.jpg" alt="LONG SLEEVE SPORTS SET 2">
-            <p>S/ 30.00</p>
-            </a>
-            <button onclick="agregar('LONG SLEEVE SPORTS SET 2', 30, 'img/polo6.jpg')">Agregar al carrito</button>
-        </div>
-
-        <div class="card">
-            <a href="polo7.html" style="image-rendering: auto; color:inherit; cursor:pointer;">
-            <h3>LONG SLEEVE SPORTS SET 3</h3>
-            <img src="img/polo7.jpg" alt="LONG SLEEVE SPORTS SET 3">
-            <p>S/ 25.00</p>
-            </a>
-            <button onclick="agregar('LONG SLEEVE SPORTS SET 3', 25, 'img/polo7.jpg')">Agregar al carrito</button>
-        </div>
-
-        <div class="card">
-            <a href="polo8.html" style="image-rendering: auto; color:inherit; cursor:pointer;">
-            <h3>LONG SLEEVE SPORTS SET 4</h3>
-            <img src="img/polo8.jpg" alt="LONG SLEEVE SPORTS SET 4">
-            <p>S/ 15.00</p>
-            </a>
-            <button onclick="agregar('LONG SLEEVE SPORTS SET 4', 15, 'img/polo8.jpg')">Agregar al carrito</button>
         </div>
 
     </div>
-    <div class="buscador">
-        <input type="text" id="buscar" placeholder="Buscar producto...">
+            <div id="lista-carrito">
+                <p class="carrito-vacio">Tu carrito está vacío</p>
+            </div>
+            <div class="carrito-footer">
+                <p class="subtitulo"><span id="cantidad">0</span> artículo(s)</p>
+                <p class="total-precio">S/ <span id="total">0.00</span></p>
+                <button class="btn-ver" onclick="alert('funciona')">
+      Vaciar carrito
+    </button>
+                <button class="btn-pagar" onclick="checkout()">Tramitar Pedido</button>
+            </div>
+        </div>
     </div>
-</div>
 
-<script src="script.js"></script>
-</body>
-</html>
+    <div class="contenedor">
+        <div class="grid">
+
+            <div class="card">
+                <a href="polo1.html" style="image-rendering: auto; color:inherit; cursor:pointer;">
+                <h3>POLO MANGA LARGA</h3>
+                <img src="img/polo1.jpg" alt="POLO MANGA LARGA">
+                <p>S/ 30.00</p>
+                </a>
+                <button onclick="agregar('POLO MANGA LARGA', 30, 'img/polo1.jpg')">Agregar al carrito</button>
+            </div>
+
+            <div class="card">
+                <a href="polo2.html" style="image-rendering: auto; color:inherit; cursor:pointer;">
+                <h3>LICRA</h3>
+                <img src="img/polo2.jpg" alt="LICRA">
+                <p>S/ 25.00</p>
+                </a>
+                <button onclick="agregar('LICRA', 25, 'img/polo2.jpg')">Agregar al carrito</button>
+            </div>
+        <div class="card">
+            <a href="polo3.html" style="image-rendering: auto; color:inherit; cursor:pointer;">
+                <h3>CONJUNTO DEPORTIVO NEGRO</h3>
+                <img src="img/polo3.jpg" alt="LICRA">
+                <p>S/ 50.00</p>
+                </a>
+                <button onclick="agregar('CONJUNTO DEPORTIVO NEGRO', 50, 'img/polo3.jpg')">Agregar al carrito</button>
+            </div>
+        
+
+            <div class="card">
+                <a href="polo4.html" style="image-rendering: auto; color:inherit; cursor:pointer;">
+                <h3>CONJUNTO DEPORTIVO BLANCO</h3>
+                <img src="img/polo4.jpg" alt="CONJUNTO DEPORTIVO BLANCO">
+                <p>S/ 15.00</p>
+                </a>
+                <button onclick="agregar('CONJUNTO DEPORTIVO BLANCO', 15, 'img/polo4.jpg')">Agregar al carrito</button>
+            </div>
+
+            <div class="card">
+                <a href="polo5.html" style="image-rendering: auto; color:inherit; cursor:pointer;">
+                <h3>LONG SLEEVE SPORTS SET</h3>
+                <img src="img/polo5.jpg" alt="LONG SLEEVE SPORTS SET">
+                <p>S/ 40.00</p>
+                </a>
+                <button onclick="agregar('LONG SLEEVE SPORTS SET', 40, 'img/polo5.jpg')">Agregar al carrito</button>
+            </div>
+
+            <div class="card">
+                <a href="polo6.html" style="image-rendering: auto; color:inherit; cursor:pointer;">
+                <h3>LONG SLEEVE SPORTS SET 2</h3>
+                <img src="img/polo6.jpg" alt="LONG SLEEVE SPORTS SET 2">
+                <p>S/ 30.00</p>
+                </a>
+                <button onclick="agregar('LONG SLEEVE SPORTS SET 2', 30, 'img/polo6.jpg')">Agregar al carrito</button>
+            </div>
+
+            <div class="card">
+                <a href="polo7.html" style="image-rendering: auto; color:inherit; cursor:pointer;">
+                <h3>LONG SLEEVE SPORTS SET 3</h3>
+                <img src="img/polo7.jpg" alt="LONG SLEEVE SPORTS SET 3">
+                <p>S/ 25.00</p>
+                </a>
+                <button onclick="agregar('LONG SLEEVE SPORTS SET 3', 25, 'img/polo7.jpg')">Agregar al carrito</button>
+            </div>
+
+            <div class="card">
+                <a href="polo8.html" style="image-rendering: auto; color:inherit; cursor:pointer;">
+                <h3>LONG SLEEVE SPORTS SET 4</h3>
+                <img src="img/polo8.jpg" alt="LONG SLEEVE SPORTS SET 4">
+                <p>S/ 15.00</p>
+                </a>
+                <button onclick="agregar('LONG SLEEVE SPORTS SET 4', 15, 'img/polo8.jpg')">Agregar al carrito</button>
+            </div>
+
+        </div>
+        <div class="buscador">
+            <input type="text" id="buscar" placeholder="Buscar producto...">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    </body>
+    </html>
