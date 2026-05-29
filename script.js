@@ -471,6 +471,11 @@ function cambiarMetodoPago(){
     }
 }
 
+function cerrarCheckout(){
+
+    document.getElementById("checkoutModal")
+    .style.display = "none";
+}
 
 
 window.addEventListener("click", function(event){
