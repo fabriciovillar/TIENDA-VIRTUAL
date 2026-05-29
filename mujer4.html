@@ -374,9 +374,9 @@ h1,h2,h3,p,strong,a{
 
         </div>
 
-        <button class="btn-carrito" onclick="agregarProducto()">
-            Añadir al carrito
-        </button>
+        <button class="btn-ver-carrito" onclick="vaciarCarrito()">
+    Vaciar carrito
+</button>
         <div class="descripcion">
 
     <h3>Descripción</h3>
@@ -767,6 +767,15 @@ function actualizarCarrito(){
 function eliminarProducto(index){
 
     carrito.splice(index,1);
+
+    guardarCarrito();
+
+    actualizarCarrito();
+}
+
+function vaciarCarrito(){
+
+    carrito = [];
 
     guardarCarrito();
 
