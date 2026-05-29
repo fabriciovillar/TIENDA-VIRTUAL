@@ -411,8 +411,11 @@ function imprimirBoleta(){
 }
 function cerrarBoleta(){
 
-    document.getElementById("boletaModal")
-    .style.display = "none";
+    document.getElementById(
+        "boletaModal"
+    ).style.display = "none";
+
+    cerrarCarrito();
 }
 function cambiarMetodoPago(){
 
@@ -467,3 +470,16 @@ function cambiarMetodoPago(){
         imagenQR.src = "img/plin.jpg";
     }
 }
+
+
+
+window.addEventListener("click", function(event){
+
+    const modal =
+    document.getElementById("boletaModal");
+
+    if(event.target === modal){
+
+        modal.style.display = "none";
+    }
+});
