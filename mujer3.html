@@ -553,7 +553,23 @@ h1, h2, h3, p, strong {
 let cantidad = 0;
 let tallaSeleccionada = null;
 
-function seleccionarTalla(boton, talla) {
+/* CARGAR CARRITO GUARDADO */
+
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+let total = 0;
+
+actualizarCarrito();
+
+function guardarCarrito(){
+
+    localStorage.setItem(
+        "carrito",
+        JSON.stringify(carrito)
+    );
+}
+
+function seleccionarTalla(boton, talla){
 
     document.querySelectorAll('.btn-talla')
     .forEach(b => b.classList.remove('talla-activa'));
@@ -565,7 +581,7 @@ function seleccionarTalla(boton, talla) {
     document.getElementById("talla-texto").textContent = talla;
 }
 
-function cambiarCantidad(valor) {
+function cambiarCantidad(valor){
 
     cantidad += valor;
 
@@ -576,17 +592,16 @@ function cambiarCantidad(valor) {
     document.getElementById("cantidad").textContent = cantidad;
 }
 
-let carrito = [];
-let total = 0;
-
-function agregarProducto() {
+function agregarProducto(){
 
     if(!tallaSeleccionada){
+
         alert("Selecciona una talla");
         return;
     }
 
     if(cantidad <= 0){
+
         alert("Selecciona una cantidad");
         return;
     }
@@ -604,17 +619,20 @@ function agregarProducto() {
     document.getElementById("cantidad").textContent = cantidad;
 }
 
-function agregar(nombre, precio, imagen, talla, cant = 1) {
+function agregar(nombre, precio, imagen, talla, cant=1){
 
-    let key = nombre + '-' + talla;
+    let key = nombre + talla;
 
     let producto = carrito.find(p => p.key === key);
 
     if(producto){
+
         producto.cantidad += cant;
-    } else {
+
+    }else{
 
         carrito.push({
+
             key,
             nombre,
             precio,
@@ -624,24 +642,31 @@ function agregar(nombre, precio, imagen, talla, cant = 1) {
         });
     }
 
+    guardarCarrito();
+
     actualizarCarrito();
 
     document.getElementById("popupCarrito").style.display = "block";
 }
 
-function actualizarCarrito() {
+function actualizarCarrito(){
 
-    let contador = carrito.reduce((acc,p) => acc + p.cantidad,0);
+    let contador = carrito.reduce(
+        (acc,p) => acc + p.cantidad,
+        0
+    );
 
-    document.getElementById("contador").textContent = contador;
+    document.getElementById("contador").textContent =
+    contador;
 
-    let lista = document.getElementById("listaCarrito");
+    let lista =
+    document.getElementById("listaCarrito");
 
     lista.innerHTML = "";
 
     total = 0;
 
-    carrito.forEach(p => {
+    carrito.forEach((p,index) => {
 
         total += p.precio * p.cantidad;
 
@@ -661,6 +686,14 @@ function actualizarCarrito() {
 
                 Cantidad: ${p.cantidad}
 
+                <br><br>
+
+                <button onclick="eliminarProducto(${index})">
+
+                    ❌ Eliminar
+
+                </button>
+
             </div>
 
         </div>
@@ -672,26 +705,40 @@ function actualizarCarrito() {
     total.toFixed(2);
 }
 
-function mostrarCarrito() {
+function eliminarProducto(index){
 
-    let popup = document.getElementById("popupCarrito");
+    carrito.splice(index,1);
+
+    guardarCarrito();
+
+    actualizarCarrito();
+}
+
+function mostrarCarrito(){
+
+    let popup =
+    document.getElementById("popupCarrito");
 
     popup.style.display =
+
     popup.style.display === "block"
+
     ? "none"
+
     : "block";
 }
 
-function checkout() {
+function checkout(){
 
     if(carrito.length === 0){
 
         alert("Tu carrito está vacío");
+
         return;
     }
 
-    document.getElementById("checkoutModal").style.display =
-    "flex";
+    document.getElementById("checkoutModal")
+    .style.display = "flex";
 }
 
 function generarBoleta(){
@@ -711,19 +758,17 @@ function generarBoleta(){
     let metodo =
     document.getElementById("metodoPago").value;
 
-    /* VALIDAR DNI */
-
     if(dni.length !== 8){
 
         alert("El DNI debe tener 8 dígitos");
+
         return;
     }
-
-    /* VALIDAR CELULAR */
 
     if(celular.length !== 9){
 
         alert("El celular debe tener 9 dígitos");
+
         return;
     }
 
@@ -768,35 +813,27 @@ function generarBoleta(){
         }
     }
 
-    /* FECHA Y HORA */
-
     let ahora = new Date();
 
-    let fecha =
+    document.getElementById("fechaActual")
+    .textContent =
     ahora.toLocaleDateString();
 
-    let hora =
+    document.getElementById("horaActual")
+    .textContent =
     ahora.toLocaleTimeString();
 
-    document.getElementById("fechaActual").textContent =
-    fecha;
+    document.getElementById("bNombre")
+    .textContent = nombre;
 
-    document.getElementById("horaActual").textContent =
-    hora;
+    document.getElementById("bDni")
+    .textContent = dni;
 
-    /* DATOS CLIENTE */
+    document.getElementById("bDireccion")
+    .textContent = direccion;
 
-    document.getElementById("bNombre").textContent =
-    nombre;
-
-    document.getElementById("bDni").textContent =
-    dni;
-
-    document.getElementById("bDireccion").textContent =
-    direccion;
-
-    document.getElementById("bCelular").textContent =
-    celular;
+    document.getElementById("bCelular")
+    .textContent = celular;
 
     let productosHTML = "";
 
@@ -807,11 +844,17 @@ function generarBoleta(){
         <p>
 
             ${p.nombre}
+
             |
+
             Talla: ${p.talla}
+
             |
+
             Cantidad: ${p.cantidad}
+
             |
+
             S/${(p.precio * p.cantidad).toFixed(2)}
 
         </p>
@@ -819,25 +862,33 @@ function generarBoleta(){
         `;
     });
 
-    document.getElementById("productosBoleta").innerHTML =
-    productosHTML;
+    document.getElementById("productosBoleta")
+    .innerHTML = productosHTML;
 
-    document.getElementById("totalBoleta").textContent =
-    total.toFixed(2);
+    document.getElementById("totalBoleta")
+    .textContent = total.toFixed(2);
 
-    document.getElementById("checkoutModal").style.display =
-    "none";
+    document.getElementById("checkoutModal")
+    .style.display = "none";
 
-    document.getElementById("boletaModal").style.display =
-    "flex";
+    document.getElementById("boletaModal")
+    .style.display = "flex";
+
+    /* VACIAR CARRITO DESPUÉS DE PAGAR */
+
+    carrito = [];
+
+    guardarCarrito();
+
+    actualizarCarrito();
 }
 
-function imprimirBoleta() {
+function imprimirBoleta(){
 
     window.print();
 }
 
-function cambiarMetodoPago() {
+function cambiarMetodoPago(){
 
     let metodo =
     document.getElementById("metodoPago").value;
@@ -851,14 +902,14 @@ function cambiarMetodoPago() {
     let imagenQR =
     document.getElementById("imagenQR");
 
-    if(metodo === "tarjeta") {
+    if(metodo === "tarjeta"){
 
         datosTarjeta.style.display = "block";
 
         qrPago.style.display = "none";
     }
 
-    else if(metodo === "yape") {
+    else if(metodo === "yape"){
 
         datosTarjeta.style.display = "none";
 
@@ -867,7 +918,7 @@ function cambiarMetodoPago() {
         imagenQR.src = "img/yape.jpg";
     }
 
-    else if(metodo === "plin") {
+    else if(metodo === "plin"){
 
         datosTarjeta.style.display = "none";
 
