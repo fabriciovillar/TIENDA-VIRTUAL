@@ -98,6 +98,16 @@ function eliminar(index){
     actualizarCarrito();
 }
 
+function vaciarCarrito(){
+
+    carrito = [];
+
+    guardarCarrito();
+
+    actualizarCarrito();
+
+    cerrarCarrito();
+}
 /* =========================
    ABRIR / CERRAR CARRITO
 ========================= */
